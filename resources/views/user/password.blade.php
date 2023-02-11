@@ -16,13 +16,21 @@
                     @csrf
                     <div class="mb-3">
                       <label class="form-label">Username</label>
-                      <input type="text" name="username" value="{{old('username')}}" class="form-control" >
+                      <input type="text" name="old_username" value="{{old('username')}}" class="form-control" >
                     </div>
                     <div class="mb-3">
-                      <label class="form-label">Password</label>
+                      <label class="form-label">Old Password</label>
                       <input type="password" name="password" class="form-control">
                     </div>
-                    <button class="btn btn-primary">Login</button>
+                    <div class="mb-3">
+                      <label class="form-label">New Password</label>
+                      <input type="password" name="new_password" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">New Password Confirmation</label>
+                      <input type="password" name="new_password_confirmation" class="form-control">
+                    </div>
+                    <button class="btn btn-primary">Change</button>
                 </form>
             </div>
 
