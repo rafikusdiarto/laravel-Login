@@ -1,9 +1,9 @@
 @extends('app')
 @section('content')
+    <p>Welcome <b>{{ Auth::user()?->name }} </b></p>
+    <a class="btn btn-warning" href="{{route('password')}}">Change Password</a>
+    <a class="btn btn-danger" href="{{route('logout')}}">Logout</a>
 @auth
-<p>Welcome <b>{{ Auth::user()->name ?? "User"}} </b></p>
-<a class="btn btn-primary" href="{{route('password')}}">Change Password</a>
-<a class="btn btn-primary" href="{{route('logout')}}">Logout</a>
 @endauth
 @guest
     <a href="{{route('login')}}" class="btn btn-primary">Login</a>

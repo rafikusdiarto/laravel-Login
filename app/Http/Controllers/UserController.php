@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -33,24 +32,6 @@ class UserController extends Controller
         return redirect()->route('login')->with('success', 'Registration Success, Please Login');
     }
 
-    public function login(){
-        $data['title']= 'Login';
-        return view('user/login', $data);
-    }
-
-    public function login_action(Request $request){
-        $request->validate([
-            'username' => 'required',
-            'password' => 'required'
-        ]);
-    
-        if(Auth::attempt(['username'=>$request->username, 'password'=>$request->password]))
-        {
-            $request->session()->regenerate();
-            return redirect()->intended('/');
-        }
-        return back()->withErrors('error', 'Wrong Login Details');
-    }
 
     public function password(){
         $data['title']= 'Change Password';
@@ -68,4 +49,15 @@ class UserController extends Controller
         $request->session()->regenerate();
         return back()->with('success', 'Change password success');
     }
+    
+    public function logout(Request $request)
+        {
+            Auth::logout();
+        
+            $request->session()->invalidate();
+        
+            $request->session()->regenerateToken();
+        
+            return redirect('/login');
+        }
 }

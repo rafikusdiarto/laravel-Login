@@ -22,8 +22,14 @@
                       <label class="form-label">Password</label>
                       <input type="password" name="password" class="form-control">
                     </div>
-                    <button class="btn btn-primary">Login</button>
+                    <div class="mb-3">
+                        <button class="btn btn-primary">Login</button>
+                    </div>
                 </form>
+                <div class="mb-3 d-flex">
+                    <p>Dont have an account ?</p>
+                    <a href="{{route('register')}}" class="text-primary ms-2">Sign Up Here</a>
+                </div>
             </div>
 
         </div>

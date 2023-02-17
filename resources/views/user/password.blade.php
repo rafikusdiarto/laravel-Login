@@ -12,15 +12,11 @@
                         <p class="alert alert-danger">{{$err}}</p>
                     @endforeach
                 @endif
-                <form method="POST" action="{{route('login.action')}}">
+                <form method="POST" action="{{route('password.action')}}">
                     @csrf
                     <div class="mb-3">
-                      <label class="form-label">Username</label>
-                      <input type="text" name="old_username" value="{{old('username')}}" class="form-control" >
-                    </div>
-                    <div class="mb-3">
                       <label class="form-label">Old Password</label>
-                      <input type="password" name="password" class="form-control">
+                      <input type="password" name="old_password" class="form-control">
                     </div>
                     <div class="mb-3">
                       <label class="form-label">New Password</label>
@@ -30,7 +26,10 @@
                       <label class="form-label">New Password Confirmation</label>
                       <input type="password" name="new_password_confirmation" class="form-control">
                     </div>
-                    <button class="btn btn-primary">Change</button>
+                    <div class="mb-3">
+                        <button class="btn btn-primary">Change</button>
+                        <a href="{{route('home')}}" class="btn btn-danger">Back</a>
+                    </div>
                 </form>
             </div>
 
